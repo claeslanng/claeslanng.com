@@ -11,6 +11,7 @@
 @font-face { font-family: "Unbounded"; src: url("/assets/fonts/Unbounded.woff2") format("woff2"); font-weight: 200 900; font-display: swap; }
 @font-face { font-family: "Archivo"; src: url("/assets/fonts/Archivo_400Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 * { box-sizing: border-box; }
+html { overscroll-behavior-y: none; background: #000; }
 body { margin: 0; min-height: 100svh; display: grid; place-items: center; background: #000; color: #fff; font: 400 18px/1.6 "Archivo", system-ui, sans-serif; text-align: center; padding: 32px 20px; }
 img { width: min(320px, 70vw); height: auto; margin: 0 auto 40px; display: block; }
 h1 { font: 800 clamp(30px, 6vw, 56px)/1.05 "Unbounded", "Arial Black", sans-serif; margin: 0 0 14px; }
@@ -22,7 +23,7 @@ a.btn:hover { background: #FFB23E; }
 </head>
 <body>
 <main>
-  <img src="/assets/logo-original.svg" width="320" height="180" alt="Claes Lanng">
+  <img src="/assets/logo-rim.svg" width="320" height="183" alt="Claes Lanng">
   <h1>This page isn't here.</h1>
   <p>The link may be old, or the page has moved.</p>
   <a class="btn" href="/">Go to claeslanng.com</a>
