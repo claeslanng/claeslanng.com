@@ -60,11 +60,25 @@ img { display: block; max-width: 100%; height: auto; }
 .tri { width: 0; height: 0; border-left: 11px solid currentColor; border-top: 7px solid transparent; border-bottom: 7px solid transparent; }
 
 /* ---------- Header ---------- */
-.site-header { position: absolute; inset: 0 0 auto 0; z-index: 3; padding: 22px 0; }
-.site-header .wrap { display: flex; justify-content: flex-end; align-items: center; gap: 28px; }
+/* Stays at the top while scrolling: see-through over the hero, a dark bar once you scroll */
+.site-header {
+  position: fixed; inset: 0 0 auto 0; z-index: 5;
+  padding: calc(22px + env(safe-area-inset-top)) 0 22px;
+  transition: background-color 200ms ease, padding 200ms ease, border-color 200ms ease;
+  border-bottom: 1px solid transparent;
+}
+.site-header.scrolled {
+  background: rgba(0, 0, 0, 0.9); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  padding: calc(12px + env(safe-area-inset-top)) 0 12px; border-bottom-color: var(--line);
+}
+.site-header .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.site-header .home { display: block; opacity: 0; visibility: hidden; transition: opacity 200ms ease, visibility 200ms; }
+.site-header.scrolled .home { opacity: 1; visibility: visible; }
+.site-header .home img { width: 60px; height: auto; }
 .site-header nav { display: flex; gap: 24px; }
 .site-header nav a { font: 600 15px/1 var(--body); text-decoration: none; color: var(--white); opacity: 0.85; }
-.site-header nav a:hover { opacity: 1; }
+@media (hover: hover) { .site-header nav a:hover { opacity: 1; color: var(--amber); } }
+section { scroll-margin-top: 64px; }
 
 /* ---------- Hero ---------- */
 .hero { position: relative; min-height: 100svh; display: grid; align-items: end; overflow: hidden; background: var(--stage); }
@@ -163,7 +177,7 @@ h2 { font: 800 clamp(40px, 7vw, 96px)/0.95 var(--display); letter-spacing: -0.02
 .site-footer img { width: 140px; }
 
 @media (max-width: 860px) {
-  .site-header nav a.hide-sm { display: none; }
+  .site-header nav { gap: 18px; }
   .music-grid, .about { grid-template-columns: 1fr; }
   .player { min-height: 360px; }
   .photos {
@@ -172,6 +186,11 @@ h2 { font: 800 clamp(40px, 7vw, 96px)/0.95 var(--display); letter-spacing: -0.02
     grid-template-areas: "street street" "bw1 club" "bw2 bw2";
   }
   .photos .bw2 img { object-position: 50% 20%; }
+}
+@media (max-width: 374px) {
+  .site-header nav { gap: 14px; }
+  .site-header nav a { font-size: 14px; }
+  .site-header .home img { width: 50px; }
 }
 </style>
 <script type="application/ld+json">
@@ -204,17 +223,18 @@ h2 { font: 800 clamp(40px, 7vw, 96px)/0.95 var(--display); letter-spacing: -0.02
 
 <header class="site-header">
   <div class="wrap">
+    <a class="home" href="#top" aria-label="Back to top"><img src="assets/logo-rim.svg" width="60" height="34" alt=""></a>
     <nav aria-label="Main">
       <a href="#music">Music</a>
-      <a href="#photos" class="hide-sm">Photos</a>
-      <a href="#about" class="hide-sm">About</a>
+      <a href="#photos">Photos</a>
+      <a href="#about">About</a>
       <a href="#booking">Booking</a>
     </nav>
   </div>
 </header>
 
 <main>
-  <div class="hero">
+  <div class="hero" id="top">
     <picture>
       <source type="image/webp" srcset="assets/img/hero-960.webp 960w, assets/img/hero-1600.webp 1600w, assets/img/hero-2400.webp 2400w" sizes="100vw">
       <img src="assets/img/hero-1600.jpg" srcset="assets/img/hero-960.jpg 960w, assets/img/hero-1600.jpg 1600w, assets/img/hero-2400.jpg 2400w" sizes="100vw" width="2400" height="1305" fetchpriority="high" alt="Claes Lanng with his arms raised behind the decks, facing a festival crowd">
@@ -313,6 +333,12 @@ h2 { font: 800 clamp(40px, 7vw, 96px)/0.95 var(--display); letter-spacing: -0.02
 
 <script>
 (() => {
+  // The menu gets its dark bar (and the small logo) once you scroll away from the top
+  const header = document.querySelector(".site-header");
+  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 40);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
   // SoundCloud loads only when someone asks for it: faster page, no third-party requests before that
   const btn = document.getElementById("load-player");
   btn?.addEventListener("click", () => {
