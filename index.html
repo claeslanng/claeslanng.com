@@ -78,6 +78,9 @@ img { display: block; max-width: 100%; height: auto; }
 .site-header nav { display: flex; gap: 24px; }
 .site-header nav a { font: 600 15px/1 var(--body); text-decoration: none; color: var(--white); opacity: 0.85; }
 @media (hover: hover) { .site-header nav a:hover { opacity: 1; color: var(--amber); } }
+/* Plugins goes to his other site (claeslanng.shop): set apart with a thin divider and an arrow */
+.site-header nav a.ext { padding-left: 24px; border-left: 1px solid rgba(255,255,255,0.35); }
+.site-header nav a .arrow { margin-left: 4px; }
 section { scroll-margin-top: 64px; }
 
 /* ---------- Hero ---------- */
@@ -178,6 +181,8 @@ h2 { font: 800 clamp(40px, 7vw, 96px)/0.95 var(--display); letter-spacing: -0.02
 
 @media (max-width: 860px) {
   .site-header nav { gap: 18px; }
+  .site-header nav a.ext { padding-left: 18px; }
+  .site-header nav a.hide-sm { display: none; }
   .music-grid, .about { grid-template-columns: 1fr; }
   .player { min-height: 360px; }
   .photos {
@@ -189,6 +194,7 @@ h2 { font: 800 clamp(40px, 7vw, 96px)/0.95 var(--display); letter-spacing: -0.02
 }
 @media (max-width: 374px) {
   .site-header nav { gap: 14px; }
+  .site-header nav a.ext { padding-left: 14px; }
   .site-header nav a { font-size: 14px; }
   .site-header .home img { width: 50px; }
 }
@@ -226,9 +232,10 @@ h2 { font: 800 clamp(40px, 7vw, 96px)/0.95 var(--display); letter-spacing: -0.02
     <a class="home" href="#top" aria-label="Back to top"><img src="assets/logo-rim.svg" width="60" height="34" alt=""></a>
     <nav aria-label="Main">
       <a href="#music">Music</a>
-      <a href="#photos">Photos</a>
+      <a href="#photos" class="hide-sm">Photos</a>
       <a href="#about">About</a>
       <a href="#booking">Booking</a>
+      <a href="https://claeslanng.shop" class="ext">Plugins<span class="arrow" aria-hidden="true">↗</span></a>
     </nav>
   </div>
 </header>

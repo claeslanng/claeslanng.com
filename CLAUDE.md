@@ -33,8 +33,10 @@ approval in chat):
 
 ## Page structure
 
-Fixed top menu (Music, Photos, About, Booking; all four on phones too): see-through over
-the hero, then a dark bar with a small logo (back to top) once you scroll past 40 px.
+Fixed top menu: Music, Photos, About, Booking, then "Plugins ↗" (to claeslanng.shop, set
+apart by a thin divider; he wanted the plugin site easier to find). Phones drop Photos to
+fit. See-through over the hero, then a dark bar with a small logo (back to top) once you
+scroll past 40 px.
 Hero (full-screen live photo, logo, tagline, Listen and Book buttons), Music (SoundCloud
 player that only loads on click, release list, platform links), Photos (four-photo grid),
 About (portrait + bio), Booking (white section: big email, write/copy buttons, press kit,
