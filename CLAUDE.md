@@ -18,12 +18,15 @@ approval in chat):
 - For more than a decade he has played clubs, venues and festivals across Europe.
 - He "plays everything". His productions are mashups, bootlegs, remixes and originals.
 - Booking email: **djclaeslanng@gmail.com**
+- He has a second SoundCloud account, "Claes Lanng 2", for mashups and bootlegs, many
+  with free downloads (from its own bio; he asked for it on the site).
 
 **Approved links** (only these; he explicitly left out Mixcloud):
 - Instagram https://www.instagram.com/claeslanng/
 - TikTok https://www.tiktok.com/@claeslanng
 - Facebook https://www.facebook.com/djclaeslanng/
 - SoundCloud https://soundcloud.com/claeslanng
+- SoundCloud 2 https://soundcloud.com/claeslanng2 (mashups & bootlegs)
 - Bandcamp https://claeslanng1.bandcamp.com/
 - Patreon https://www.patreon.com/claeslanng
 
@@ -38,7 +41,8 @@ apart by a thin divider; he wanted the plugin site easier to find). Phones drop 
 fit. See-through over the hero, then a dark bar with a small logo (back to top) once you
 scroll past 40 px.
 Hero (full-screen live photo, logo, tagline, Listen and Book buttons), Music (SoundCloud
-player that only loads on click, release list, platform links), Photos (four-photo grid),
+player that only loads on click, with Main account / Mashups & bootlegs tabs above it that
+pick which account it shows, release list, platform links), Photos (four-photo grid),
 About (portrait + bio), Booking (white section: big email, write/copy buttons, press kit,
 socials), footer (logo + ©).
 

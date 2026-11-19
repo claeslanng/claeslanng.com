@@ -113,6 +113,16 @@ h2 { font: 800 clamp(40px, 7vw, 96px)/0.95 var(--display); letter-spacing: -0.02
   appearance: none; border: 0; background: none; color: var(--white); cursor: pointer; font: inherit;
   display: grid; justify-items: center; gap: 18px;
 }
+/* Switch between his two SoundCloud accounts, sits on top of the player box */
+.player-tabs { display: grid; grid-template-columns: 1fr 1fr; border: 3px solid var(--white); border-bottom: 0; }
+.player-tabs button {
+  appearance: none; border: 0; margin: 0; cursor: pointer; padding: 14px 12px;
+  font: 600 15px/1.25 var(--body); background: transparent; color: var(--white);
+  transition: background-color 120ms ease, color 120ms ease;
+}
+.player-tabs button + button { border-left: 3px solid var(--white); }
+.player-tabs button[aria-pressed="true"] { background: var(--white); color: var(--black); }
+@media (hover: hover) { .player-tabs button[aria-pressed="false"]:hover { color: var(--amber); } }
 .player .play {
   width: 96px; height: 96px; border-radius: 50%; background: var(--white); color: var(--black);
   display: grid; place-items: center; transition: background-color 120ms ease;
@@ -218,6 +228,7 @@ h2 { font: 800 clamp(40px, 7vw, 96px)/0.95 var(--display); letter-spacing: -0.02
   "https://www.tiktok.com/@claeslanng",
   "https://www.facebook.com/djclaeslanng/",
   "https://soundcloud.com/claeslanng",
+  "https://soundcloud.com/claeslanng2",
   "https://claeslanng1.bandcamp.com/",
   "https://www.patreon.com/claeslanng"
  ]
@@ -259,14 +270,20 @@ h2 { font: 800 clamp(40px, 7vw, 96px)/0.95 var(--display); letter-spacing: -0.02
   <section id="music" aria-labelledby="music-title">
     <div class="wrap">
       <h2 id="music-title">Music</h2>
-      <p class="lead">Remixes, mashups, bootlegs and originals. New tracks land on SoundCloud first.</p>
+      <p class="lead">Remixes, mashups, bootlegs and originals. New tracks land on SoundCloud first, and his second SoundCloud account has mashups and bootlegs, many free to download.</p>
       <div class="music-grid">
+        <div>
+        <div class="player-tabs" role="group" aria-label="Choose a SoundCloud account">
+          <button type="button" aria-pressed="true" data-url="https://soundcloud.com/claeslanng" data-name="Claes Lanng">Main account</button>
+          <button type="button" aria-pressed="false" data-url="https://soundcloud.com/claeslanng2" data-name="Claes Lanng 2: mashups and bootlegs">Mashups &amp; bootlegs</button>
+        </div>
         <div class="player" id="player">
           <button type="button" id="load-player" aria-label="Play Claes Lanng on SoundCloud">
             <span class="play"><span class="tri" aria-hidden="true"></span></span>
             <strong>Play on SoundCloud</strong>
             <small>Loads the SoundCloud player here. Nothing from SoundCloud loads until you click.</small>
           </button>
+        </div>
         </div>
         <div>
           <ul class="releases">
@@ -277,6 +294,7 @@ h2 { font: 800 clamp(40px, 7vw, 96px)/0.95 var(--display); letter-spacing: -0.02
           </ul>
           <div class="platforms" aria-label="Listen on">
             <a href="https://soundcloud.com/claeslanng">SoundCloud</a>
+            <a href="https://soundcloud.com/claeslanng2">SoundCloud 2</a>
             <a href="https://claeslanng1.bandcamp.com/">Bandcamp</a>
             <a href="https://www.patreon.com/claeslanng">Patreon</a>
           </div>
@@ -324,6 +342,7 @@ h2 { font: 800 clamp(40px, 7vw, 96px)/0.95 var(--display); letter-spacing: -0.02
         <a href="https://www.tiktok.com/@claeslanng">TikTok</a>
         <a href="https://www.facebook.com/djclaeslanng/">Facebook</a>
         <a href="https://soundcloud.com/claeslanng">SoundCloud</a>
+        <a href="https://soundcloud.com/claeslanng2">SoundCloud 2</a>
         <a href="https://claeslanng1.bandcamp.com/">Bandcamp</a>
         <a href="https://www.patreon.com/claeslanng">Patreon</a>
       </nav>
@@ -346,18 +365,29 @@ h2 { font: 800 clamp(40px, 7vw, 96px)/0.95 var(--display); letter-spacing: -0.02
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  // SoundCloud loads only when someone asks for it: faster page, no third-party requests before that
+  // SoundCloud loads only when someone asks for it: faster page, no third-party requests before that.
+  // The tabs pick which of his two accounts the player shows.
+  const box = document.getElementById("player");
   const btn = document.getElementById("load-player");
-  btn?.addEventListener("click", () => {
+  const tabs = document.querySelectorAll(".player-tabs button");
+  let current = tabs[0];
+  const embed = () => {
     const f = document.createElement("iframe");
-    f.title = "Claes Lanng on SoundCloud";
+    f.title = current.dataset.name + " on SoundCloud";
     f.allow = "autoplay";
-    f.src = "https://w.soundcloud.com/player/?url=" + encodeURIComponent("https://soundcloud.com/claeslanng") +
+    f.src = "https://w.soundcloud.com/player/?url=" + encodeURIComponent(current.dataset.url) +
             "&color=%23ffb23e&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=false";
-    const box = document.getElementById("player");
     box.replaceChildren(f);
-    f.focus();
-  });
+    return f;
+  };
+  btn?.addEventListener("click", () => embed().focus());
+  tabs.forEach((tab) => tab.addEventListener("click", () => {
+    if (tab === current) return;
+    tabs.forEach((t) => t.setAttribute("aria-pressed", String(t === tab)));
+    current = tab;
+    btn?.setAttribute("aria-label", "Play " + tab.dataset.name + " on SoundCloud");
+    if (box.querySelector("iframe")) embed();   // already playing: switch the player over
+  }));
 
   const copy = document.getElementById("copy-email");
   copy?.addEventListener("click", async () => {
