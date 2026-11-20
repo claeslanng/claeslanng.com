@@ -64,8 +64,10 @@ uploads; ask him for them if you need to rebuild the photos.
 
 - Black and white like the logo, with amber `#FFB23E` (from the festival light) as a
   sparing accent for hover and focus. Booking is the one white section.
-- Fonts: **Unbounded** (display, variable woff2 subset to Latin incl. æøå) and
-  **Archivo** (body), both OFL and self-hosted.
+- Fonts: **Schibsted Grotesk Black** (display: headings, email, track titles, buttons;
+  one 900 woff2, Latin incl. æøå) and **Archivo** (body), both OFL and self-hosted.
+  He chose Schibsted on 2026-11-20 over Anton, Big Shoulders Display and Space Grotesk;
+  he found the old display font (Unbounded) too wide.
 - Buttons are "cut out" of the logo: white blocks with a hard black edge.
 - Fast loading is a requirement: about 300 KB before play, and no third-party requests
   until someone clicks the SoundCloud player. Photos are WebP plus JPEG fallbacks at a few
@@ -103,3 +105,11 @@ again" and then tick "Enforce HTTPS" in Settings → Pages.
 - Spotify or YouTube links, if he has them.
 - A booking address on the domain (e.g. booking@claeslanng.com forwarding to Gmail, set
   up in GoDaddy).
+
+## Google
+Search basics are in place: title, meta description, canonical, Open Graph, Person
+structured data (JSON-LD with sameAs to every profile), robots.txt and sitemap.xml.
+Update sitemap.xml's lastmod when the page changes. As of 2026-11-20 the site was not
+in search results yet and Search Console was not set up; Claes has to verify it
+himself with his Google account. If he sends a google-site-verification meta tag, put
+it in index.html's <head> and keep it there (removing it un-verifies the site).

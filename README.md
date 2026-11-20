@@ -9,4 +9,4 @@ One static page (`index.html`), no build step. Edit and push to `main`; the live
 - `press/claes-lanng-press-kit.zip`: photos, logo and bio for promoters.
 - `CNAME`: the custom domain. Keep this file.
 
-Fonts: Unbounded and Archivo, both under the SIL Open Font License (`assets/fonts/`).
+Fonts: Schibsted Grotesk and Archivo, both under the SIL Open Font License (`assets/fonts/`).
