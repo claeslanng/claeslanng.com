@@ -18,8 +18,11 @@ approval in chat):
 - For more than a decade he has played clubs, venues and festivals across Europe.
 - He "plays everything". His productions are mashups, bootlegs, remixes and originals.
 - Booking email: **djclaeslanng@gmail.com**
-- Instagram DMs are also a booking channel (he chose this 2026-11-20): "Message on
-  Instagram" button → https://ig.me/m/claeslanng. No phone number on the site; no form yet.
+- Instagram DMs are also a booking channel (he chose this 2026-11-20): the "Message on
+  Instagram" button links to the profile (instagram.com/claeslanng) and a script swaps in
+  https://ig.me/m/claeslanng on phones/tablets, which opens the app straight into a chat.
+  ig.me doesn't work on Instagram's website, so desktop must keep the profile link.
+  No phone number on the site; no form yet.
 - He has a second SoundCloud account, "Claes Lanng 2", for mashups and bootlegs, many
   with free downloads (from its own bio; he asked for it on the site).
 

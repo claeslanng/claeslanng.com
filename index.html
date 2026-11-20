@@ -345,7 +345,7 @@ h2 { font: 900 clamp(40px, 7vw, 96px)/0.9 var(--display); letter-spacing: -0.04e
       <a class="email" href="mailto:djclaeslanng@gmail.com">djclaeslanng@gmail.com</a>
       <div class="booking-actions">
         <a class="btn" href="mailto:djclaeslanng@gmail.com?subject=Booking%20request">Write an email</a>
-        <a class="btn btn-ghost" href="https://ig.me/m/claeslanng">Message on Instagram</a>
+        <a class="btn btn-ghost" id="ig-dm" href="https://www.instagram.com/claeslanng/">Message on Instagram</a>
         <button class="btn btn-ghost" type="button" id="copy-email">Copy email address</button>
         <a class="btn btn-ghost" href="press/claes-lanng-press-kit.zip" download>Download press kit</a>
       </div>
@@ -400,6 +400,13 @@ h2 { font: 900 clamp(40px, 7vw, 96px)/0.9 var(--display); letter-spacing: -0.04e
     btn?.setAttribute("aria-label", "Play " + tab.dataset.name + " on SoundCloud");
     if (box.querySelector("iframe")) embed();   // already playing: switch the player over
   }));
+
+  // Instagram: phones get the ig.me chat link, which opens the app straight into a chat.
+  // ig.me doesn't work on Instagram's website, so computers keep the profile link (it has a Message button).
+  const ig = document.getElementById("ig-dm");
+  const isPhone = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+                  (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);   // iPads report as Mac
+  if (ig && isPhone) ig.href = "https://ig.me/m/claeslanng";
 
   const copy = document.getElementById("copy-email");
   copy?.addEventListener("click", async () => {
