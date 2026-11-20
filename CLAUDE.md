@@ -109,8 +109,18 @@ again" and then tick "Enforce HTTPS" in Settings → Pages.
 ## Google
 Search basics are in place: title, meta description, canonical, Open Graph, Person
 structured data (JSON-LD with sameAs to every profile), robots.txt and sitemap.xml.
-Update sitemap.xml's lastmod when the page changes. As of 2026-11-20 the site was not
-in search results yet and Search Console was not set up; Claes has to verify it
-himself with his Google account. He verified with Google's HTML file method:
+Update sitemap.xml's lastmod when the page changes. Search Console is set up (verified
+2026-11-20, live test passed, indexing requested; the sitemap first showed "couldn't
+fetch", a usual first-day delay; resubmit if it persists). He verified with Google's HTML file method:
 google0789dddcf62e118d.html at the site root. Never delete or rename that file
 (removing it un-verifies the site in Search Console).
+
+## Danish version (/da/)
+da/index.html is GENERATED from index.html by `python3 tools/build-da.py`. Never edit
+da/index.html by hand. After any change to index.html, run the script; if it stops,
+it names the English text that changed: add or update its Danish line in TEXTS.
+Upload both index.html and da/index.html. Both pages carry hreflang links (en, da,
+x-default = English) and sitemap.xml lists both with the same alternates.
+Language switch: "DA"/"EN" tag in the menu on desktop, "Dansk"/"English" in the footer.
+Danish copy uses "open format-DJ", "pulten" (the decks), "egne numre" (originals),
+informal "du". Added 2026-11-20 so Danish searches ("DJ København" etc.) can find him.

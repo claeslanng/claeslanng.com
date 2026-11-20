@@ -10,9 +10,15 @@
 <meta property="og:image" content="https://claeslanng.com/assets/img/og.jpg">
 <meta property="og:url" content="https://claeslanng.com/">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="da_DK">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://claeslanng.com/">
+<!-- English and Danish versions of the same page; Google shows the right one per searcher -->
+<link rel="alternate" hreflang="en" href="https://claeslanng.com/">
+<link rel="alternate" hreflang="da" href="https://claeslanng.com/da/">
+<link rel="alternate" hreflang="x-default" href="https://claeslanng.com/">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/SchibstedGrotesk_900Black.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/hero-960.webp 960w, assets/img/hero-1600.webp 1600w, assets/img/hero-2400.webp 2400w" imagesizes="100vw">
@@ -82,6 +88,9 @@ img { display: block; max-width: 100%; height: auto; }
 /* Plugins goes to his other site (claeslanng.shop): set apart with a thin divider and an arrow */
 .site-header nav a.ext { padding-left: 24px; border-left: 1px solid rgba(255,255,255,0.35); }
 .site-header nav a .arrow { margin-left: 4px; }
+/* Language switch: a small outlined tag in the menu (desktop), plain link in the footer */
+.site-header nav a.lang { font-size: 12px; letter-spacing: 0.08em; padding: 5px 7px; border: 1.5px solid rgba(255,255,255,0.4); align-self: center; }
+.site-footer a.lang-foot { color: var(--white); }
 section { scroll-margin-top: 64px; }
 
 /* ---------- Hero ---------- */
@@ -248,6 +257,7 @@ h2 { font: 900 clamp(40px, 7vw, 96px)/0.9 var(--display); letter-spacing: -0.04e
       <a href="#about">About</a>
       <a href="#booking">Booking</a>
       <a href="https://claeslanng.shop" class="ext">Plugins<span class="arrow" aria-hidden="true">↗</span></a>
+      <a href="/da/" class="lang hide-sm" hreflang="da" lang="da" aria-label="Dansk version">DA</a>
     </nav>
   </div>
 </header>
@@ -354,7 +364,7 @@ h2 { font: 900 clamp(40px, 7vw, 96px)/0.9 var(--display); letter-spacing: -0.04e
 <footer class="site-footer">
   <div class="wrap">
     <img src="assets/logo-rim.svg" width="140" height="80" alt="Claes Lanng">
-    <span>© 2026 Claes Lanng</span>
+    <span>© 2026 Claes Lanng · <a href="/da/" class="lang-foot" hreflang="da" lang="da">Dansk</a></span>
   </div>
 </footer>
 

@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Claes Lanng: open format-DJ og producer fra København</title>
+<meta name="description" content="Claes Lanng er en dansk open format-DJ og producer fra København. Hør hans remixes, mashups og egne numre, og book ham til din klub, festival eller dit private arrangement.">
+<meta property="og:title" content="Claes Lanng: DJ og producer">
+<meta property="og:description" content="Dansk open format-DJ og producer fra København. Lyt med, og book Claes til dit arrangement.">
+<meta property="og:image" content="https://claeslanng.com/assets/img/og.jpg">
+<meta property="og:url" content="https://claeslanng.com/da/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="da_DK">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://claeslanng.com/da/">
+<!-- English and Danish versions of the same page; Google shows the right one per searcher -->
+<link rel="alternate" hreflang="en" href="https://claeslanng.com/">
+<link rel="alternate" hreflang="da" href="https://claeslanng.com/da/">
+<link rel="alternate" hreflang="x-default" href="https://claeslanng.com/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/SchibstedGrotesk_900Black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" type="image/webp" imagesrcset="/assets/img/hero-960.webp 960w, /assets/img/hero-1600.webp 1600w, /assets/img/hero-2400.webp 2400w" imagesizes="100vw">
+<style>
+/* Headings: Schibsted Grotesk Black. One 900 file covers every heavy use (700-900). */
+@font-face { font-family: "Schibsted Grotesk"; src: url("/assets/fonts/SchibstedGrotesk_900Black.woff2") format("woff2"); font-weight: 700 900; font-display: swap; }
+@font-face { font-family: "Archivo"; src: url("/assets/fonts/Archivo_400Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Archivo"; src: url("/assets/fonts/Archivo_600SemiBold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+
+:root {
+  /* Black and white like the logo; amber from the festival light, used sparingly */
+  --black: #000000;
+  --stage: #17110C;
+  --white: #FFFFFF;
+  --fog: #B9B2AA;
+  --line: #2E2620;
+  --amber: #FFB23E;
+  --display: "Schibsted Grotesk", "Arial Black", sans-serif;
+  --body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --edge: clamp(20px, 5vw, 64px);
+  --max: 1240px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overscroll-behavior-y: none; background: var(--black); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--black); color: var(--white); font: 400 18px/1.6 var(--body); -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--edge); }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 16px; top: 16px; z-index: 10; background: var(--white); color: var(--black); padding: 10px 14px; }
+
+/* Buttons are cut from the logo: white blocks with a hard black edge */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 24px;
+  font: 900 16px/1 var(--display); letter-spacing: 0.01em; text-decoration: none;
+  background: var(--white); color: var(--black); border: 3px solid var(--black);
+  box-shadow: 0 0 0 2px var(--white);
+  transition: background-color 120ms ease, color 120ms ease;
+}
+.btn:hover { background: var(--amber); }
+.btn-ghost { background: transparent; color: var(--white); border-color: var(--white); box-shadow: none; }
+.btn-ghost:hover { background: var(--white); color: var(--black); }
+.tri { width: 0; height: 0; border-left: 11px solid currentColor; border-top: 7px solid transparent; border-bottom: 7px solid transparent; }
+
+/* ---------- Header ---------- */
+/* Stays at the top while scrolling: see-through over the hero, a dark bar once you scroll */
+.site-header {
+  position: fixed; inset: 0 0 auto 0; z-index: 5;
+  padding: calc(22px + env(safe-area-inset-top)) 0 22px;
+  transition: background-color 200ms ease, padding 200ms ease, border-color 200ms ease;
+  border-bottom: 1px solid transparent;
+}
+.site-header.scrolled {
+  background: rgba(0, 0, 0, 0.9); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  padding: calc(12px + env(safe-area-inset-top)) 0 12px; border-bottom-color: var(--line);
+}
+.site-header .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.site-header .home { display: block; opacity: 0; visibility: hidden; transition: opacity 200ms ease, visibility 200ms; }
+.site-header.scrolled .home { opacity: 1; visibility: visible; }
+.site-header .home img { width: 60px; height: auto; }
+.site-header nav { display: flex; gap: 24px; }
+.site-header nav a { font: 600 15px/1 var(--body); text-decoration: none; color: var(--white); opacity: 0.85; }
+@media (hover: hover) { .site-header nav a:hover { opacity: 1; color: var(--amber); } }
+/* Plugins goes to his other site (claeslanng.shop): set apart with a thin divider and an arrow */
+.site-header nav a.ext { padding-left: 24px; border-left: 1px solid rgba(255,255,255,0.35); }
+.site-header nav a .arrow { margin-left: 4px; }
+/* Language switch: a small outlined tag in the menu (desktop), plain link in the footer */
+.site-header nav a.lang { font-size: 12px; letter-spacing: 0.08em; padding: 5px 7px; border: 1.5px solid rgba(255,255,255,0.4); align-self: center; }
+.site-footer a.lang-foot { color: var(--white); }
+section { scroll-margin-top: 64px; }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; min-height: 100svh; display: grid; align-items: end; overflow: hidden; background: var(--stage); }
+.hero picture, .hero picture img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero picture img { object-fit: cover; object-position: 50% 40%; }
+.hero::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.45) 38%, rgba(0,0,0,0) 62%),
+              linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 22%);
+}
+.hero-inner { position: relative; z-index: 2; padding-bottom: clamp(40px, 8vh, 88px); }
+.hero h1 { margin: 0; }
+.hero h1 img { width: clamp(240px, 38vw, 540px); height: auto; }
+.hero .tagline { font: 600 clamp(18px, 2vw, 22px)/1.4 var(--body); margin: 22px 0 28px; max-width: 30em; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* ---------- Sections ---------- */
+section { padding: clamp(72px, 10vw, 136px) 0; }
+h2 { font: 900 clamp(40px, 7vw, 96px)/0.9 var(--display); letter-spacing: -0.04em; margin: 0 0 20px; }
+.lead { color: var(--fog); font-size: clamp(18px, 1.8vw, 21px); max-width: 34em; margin: 0 0 48px; }
+
+/* Music */
+.music-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
+.player {
+  position: relative; background: var(--stage); border: 3px solid var(--white); min-height: 420px;
+  display: grid; place-items: center; text-align: center; padding: 32px;
+}
+.player button {
+  appearance: none; border: 0; background: none; color: var(--white); cursor: pointer; font: inherit;
+  display: grid; justify-items: center; gap: 18px;
+}
+/* Switch between his two SoundCloud accounts, sits on top of the player box */
+.player-tabs { display: grid; grid-template-columns: 1fr 1fr; border: 3px solid var(--white); border-bottom: 0; }
+.player-tabs button {
+  appearance: none; border: 0; margin: 0; cursor: pointer; padding: 14px 12px;
+  font: 600 15px/1.25 var(--body); background: transparent; color: var(--white);
+  transition: background-color 120ms ease, color 120ms ease;
+}
+.player-tabs button + button { border-left: 3px solid var(--white); }
+.player-tabs button[aria-pressed="true"] { background: var(--white); color: var(--black); }
+@media (hover: hover) { .player-tabs button[aria-pressed="false"]:hover { color: var(--amber); } }
+.player .play {
+  width: 96px; height: 96px; border-radius: 50%; background: var(--white); color: var(--black);
+  display: grid; place-items: center; transition: background-color 120ms ease;
+}
+.player button:hover .play { background: var(--amber); }
+.player .play .tri { border-left-width: 26px; border-top-width: 16px; border-bottom-width: 16px; margin-left: 6px; }
+.player strong { font: 900 20px/1.2 var(--display); }
+.player small { color: var(--fog); font-size: 14px; max-width: 26em; }
+.player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.releases { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.releases li { border-bottom: 1px solid var(--line); }
+.releases a { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding: 18px 0; text-decoration: none; }
+.releases a:hover .title { color: var(--amber); }
+.releases .title { font: 900 19px/1.25 var(--display); letter-spacing: -0.01em; transition: color 120ms ease; }
+.releases .meta { color: var(--fog); font-size: 15px; grid-column: 1; }
+.releases .where { grid-row: 1 / span 2; grid-column: 2; align-self: center; font-size: 14px; font-weight: 600; color: var(--fog); }
+.platforms { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.platforms a { font: 600 15px/1 var(--body); padding: 12px 16px; border: 1.5px solid var(--line); text-decoration: none; }
+.platforms a:hover { border-color: var(--white); }
+
+/* Photos */
+#photos { padding-top: 0; }
+.photos {
+  display: grid; gap: clamp(8px, 1.2vw, 16px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: clamp(220px, 28vw, 400px) clamp(260px, 34vw, 480px);
+  grid-template-areas: "street street club" "bw1 bw2 club";
+}
+.photos figure { margin: 0; overflow: hidden; background: var(--stage); }
+.photos img { width: 100%; height: 100%; object-fit: cover; }
+.photos .street { grid-area: street; }
+.photos .club { grid-area: club; }
+.photos .bw1 { grid-area: bw1; }
+.photos .bw2 { grid-area: bw2; }
+.photos .bw1 img { object-position: 50% 30%; }
+.photos .bw2 img { object-position: 50% 25%; }
+
+/* About */
+.about { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+.about img { width: 100%; border: 3px solid var(--white); }
+.about p { margin: 0 0 18px; max-width: 34em; }
+.about p.small { color: var(--fog); font-size: 16px; }
+
+/* Booking */
+#booking { background: var(--white); color: var(--black); }
+#booking .lead { color: #4A433D; }
+.email {
+  display: inline-block; font: 900 clamp(17px, 5.1vw, 56px)/1.1 var(--display); letter-spacing: -0.03em;
+  color: var(--black); text-decoration: none; overflow-wrap: anywhere; border-bottom: 6px solid var(--black);
+}
+.email:hover { border-bottom-color: var(--amber); }
+.booking-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+#booking .btn { background: var(--black); color: var(--white); border-color: var(--black); box-shadow: none; }
+#booking .btn:hover { background: var(--amber); color: var(--black); }
+#booking .btn-ghost { background: transparent; color: var(--black); border-color: var(--black); }
+#booking .btn-ghost:hover { background: var(--black); color: var(--white); }
+.copied { font-weight: 600; margin-left: 4px; }
+.socials { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 56px; padding-top: 28px; border-top: 2px solid var(--black); }
+.socials a { font-weight: 600; text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
+
+/* Footer */
+.site-footer { padding: 40px 0 calc(40px + env(safe-area-inset-bottom)); color: var(--fog); font-size: 15px; }
+.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 18px 32px; }
+.site-footer img { width: 140px; }
+
+@media (max-width: 860px) {
+  .site-header nav { gap: 18px; }
+  .site-header nav a.ext { padding-left: 18px; }
+  .site-header nav a.hide-sm { display: none; }
+  .music-grid, .about { grid-template-columns: 1fr; }
+  .player { min-height: 360px; }
+  .photos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 56vw 80vw 60vw;
+    grid-template-areas: "street street" "bw1 club" "bw2 bw2";
+  }
+  .photos .bw2 img { object-position: 50% 20%; }
+}
+@media (max-width: 374px) {
+  .site-header nav { gap: 14px; }
+  .site-header nav a.ext { padding-left: 14px; }
+  .site-header nav a { font-size: 14px; }
+  .site-header .home img { width: 50px; }
+}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Person",
+ "name": "Claes Lanng",
+ "url": "https://claeslanng.com/da/",
+ "jobTitle": "Open format-DJ og producer",
+ "description": "Dansk open format-DJ og producer fra København.",
+ "image": "https://claeslanng.com/assets/img/og.jpg",
+ "email": "mailto:djclaeslanng@gmail.com",
+ "homeLocation": {
+  "@type": "Place",
+  "name": "København, Danmark"
+ },
+ "sameAs": [
+  "https://www.instagram.com/claeslanng/",
+  "https://www.tiktok.com/@claeslanng",
+  "https://www.facebook.com/djclaeslanng/",
+  "https://soundcloud.com/claeslanng",
+  "https://soundcloud.com/claeslanng2",
+  "https://claeslanng1.bandcamp.com/",
+  "https://www.patreon.com/claeslanng"
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#music">Spring til musik</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="home" href="#top" aria-label="Til toppen"><img src="/assets/logo-rim.svg" width="60" height="34" alt=""></a>
+    <nav aria-label="Hovedmenu">
+      <a href="#music">Musik</a>
+      <a href="#photos" class="hide-sm">Billeder</a>
+      <a href="#about">Om</a>
+      <a href="#booking">Booking</a>
+      <a href="https://claeslanng.shop" class="ext">Plugins<span class="arrow" aria-hidden="true">↗</span></a>
+      <a href="/" class="lang hide-sm" hreflang="en" lang="en" aria-label="English version">EN</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero" id="top">
+    <picture>
+      <source type="image/webp" srcset="/assets/img/hero-960.webp 960w, /assets/img/hero-1600.webp 1600w, /assets/img/hero-2400.webp 2400w" sizes="100vw">
+      <img src="/assets/img/hero-1600.jpg" srcset="/assets/img/hero-960.jpg 960w, /assets/img/hero-1600.jpg 1600w, /assets/img/hero-2400.jpg 2400w" sizes="100vw" width="2400" height="1305" fetchpriority="high" alt="Claes Lanng med armene i vejret bag pulten, foran et festivalpublikum">
+    </picture>
+    <div class="wrap hero-inner">
+      <h1><img src="/assets/logo-rim.svg" width="540" height="308" alt="Claes Lanng"></h1>
+      <p class="tagline">Open format-DJ og producer fra København. Remixes, mashups og egne numre lavet til dansegulvet.</p>
+      <div class="actions">
+        <a class="btn" href="#music"><span class="tri" aria-hidden="true"></span>Lyt</a>
+        <a class="btn btn-ghost" href="#booking">Book Claes</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="music" aria-labelledby="music-title">
+    <div class="wrap">
+      <h2 id="music-title">Musik</h2>
+      <p class="lead">Remixes, mashups, bootlegs og egne numre. Nye numre kommer først på SoundCloud, og på hans anden SoundCloud-konto ligger mashups og bootlegs, mange af dem til gratis download.</p>
+      <div class="music-grid">
+        <div>
+        <div class="player-tabs" role="group" aria-label="Vælg en SoundCloud-konto">
+          <button type="button" aria-pressed="true" data-url="https://soundcloud.com/claeslanng" data-name="Claes Lanng">Hovedkonto</button>
+          <button type="button" aria-pressed="false" data-url="https://soundcloud.com/claeslanng2" data-name="Claes Lanng 2: mashups og bootlegs">Mashups &amp; bootlegs</button>
+        </div>
+        <div class="player" id="player">
+          <button type="button" id="load-player" aria-label="Afspil Claes Lanng på SoundCloud">
+            <span class="play"><span class="tri" aria-hidden="true"></span></span>
+            <strong>Afspil på SoundCloud</strong>
+            <small>Åbner SoundCloud-afspilleren her. Intet fra SoundCloud indlæses, før du klikker.</small>
+          </button>
+        </div>
+        </div>
+        <div>
+          <ul class="releases">
+            <li><a href="https://soundcloud.com/claeslanng"><span class="title">Finde Tilbage (Claes Lanng Remix)</span><span class="meta">Remix, 2026</span><span class="where">SoundCloud</span></a></li>
+            <li><a href="https://claeslanng1.bandcamp.com/track/tropico-swing"><span class="title">Tropico Swing</span><span class="meta">Eget nummer</span><span class="where">Bandcamp</span></a></li>
+            <li><a href="https://claeslanng1.bandcamp.com/track/boing-claes-lanng-remix"><span class="title">Boing! (Claes Lanng Remix)</span><span class="meta">Nik &amp; Jay, remix, 2024</span><span class="where">Bandcamp</span></a></li>
+            <li><a href="https://claeslanng1.bandcamp.com/track/dark-room-claes-lanng-remix"><span class="title">Dark Room (Claes Lanng Remix)</span><span class="meta">Remix, 2024</span><span class="where">Bandcamp</span></a></li>
+          </ul>
+          <div class="platforms" aria-label="Lyt på">
+            <a href="https://soundcloud.com/claeslanng">SoundCloud</a>
+            <a href="https://soundcloud.com/claeslanng2">SoundCloud 2</a>
+            <a href="https://claeslanng1.bandcamp.com/">Bandcamp</a>
+            <a href="https://www.patreon.com/claeslanng">Patreon</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="photos" aria-label="Billeder">
+    <div class="wrap photos">
+      <figure class="street"><picture><source type="image/webp" srcset="/assets/img/street-960.webp"><img src="/assets/img/street-960.jpg" width="960" height="640" loading="lazy" alt="Claes Lanng spiller til en gadefest i København foran et stort publikum"></picture></figure>
+      <figure class="club"><picture><source type="image/webp" srcset="/assets/img/club-600.webp 600w, /assets/img/club-900.webp 900w" sizes="(max-width: 860px) 50vw, 33vw"><img src="/assets/img/club-900.jpg" width="900" height="1125" loading="lazy" alt="Claes Lanng smiler bag pulten i en klub"></picture></figure>
+      <figure class="bw1"><picture><source type="image/webp" srcset="/assets/img/portrait-bw-1-600.webp 600w, /assets/img/portrait-bw-1-900.webp 900w" sizes="(max-width: 860px) 50vw, 33vw"><img src="/assets/img/portrait-bw-1-900.jpg" width="900" height="1350" loading="lazy" alt="Sort-hvidt portræt af Claes Lanng med lukkede øjne og tungen ude"></picture></figure>
+      <figure class="bw2"><picture><source type="image/webp" srcset="/assets/img/portrait-bw-2-600.webp 600w, /assets/img/portrait-bw-2-900.webp 900w" sizes="(max-width: 860px) 100vw, 33vw"><img src="/assets/img/portrait-bw-2-900.jpg" width="900" height="1350" loading="lazy" alt="Sort-hvidt portræt af Claes Lanng, der griner, i en denimjakke"></picture></figure>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="about-title">
+    <div class="wrap about">
+      <picture>
+        <source type="image/webp" srcset="/assets/img/about-640.webp 640w, /assets/img/about-1000.webp 1000w" sizes="(max-width: 860px) 100vw, 45vw">
+        <img src="/assets/img/about-1000.jpg" width="1000" height="1251" loading="lazy" alt="Portræt af Claes Lanng, siddende, med kasket og vest">
+      </picture>
+      <div>
+        <h2 id="about-title">Om Claes</h2>
+        <p>Claes Lanng er en dansk open format-DJ og producer fra København. Han er DJ på fuld tid og har i mere end ti år spillet på klubber, spillesteder og festivaler rundt om i Europa.</p>
+        <p>Han spiller alt: hans sets bevæger sig frit mellem genrerne og følger publikum frem for én bestemt lyd. Hans produktioner gør det samme, med mashups, bootlegs og remixes side om side med hans egne numre. Uanset aftenen er målet et fyldt dansegulv.</p>
+        <p class="small">Når han ikke står bag pulten, laver han gratis værktøjer til producere under navnet <a href="https://claeslanng.shop">Claes Lanng Plugins</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="booking" aria-labelledby="booking-title">
+    <div class="wrap">
+      <h2 id="booking-title">Book Claes</h2>
+      <p class="lead">Til klubber, festivaler, private arrangementer, samarbejder og presse: send en mail med dato, sted og hvad du har i tankerne.</p>
+      <a class="email" href="mailto:djclaeslanng@gmail.com">djclaeslanng@gmail.com</a>
+      <div class="booking-actions">
+        <a class="btn" href="mailto:djclaeslanng@gmail.com?subject=Booking-foresp%C3%B8rgsel">Skriv en mail</a>
+        <button class="btn btn-ghost" type="button" id="copy-email">Kopiér mailadresse</button>
+        <a class="btn btn-ghost" href="/press/claes-lanng-press-kit.zip" download>Hent pressekit</a>
+      </div>
+      <nav class="socials" aria-label="Claes Lanng andre steder">
+        <a href="https://www.instagram.com/claeslanng/">Instagram</a>
+        <a href="https://www.tiktok.com/@claeslanng">TikTok</a>
+        <a href="https://www.facebook.com/djclaeslanng/">Facebook</a>
+        <a href="https://soundcloud.com/claeslanng">SoundCloud</a>
+        <a href="https://soundcloud.com/claeslanng2">SoundCloud 2</a>
+        <a href="https://claeslanng1.bandcamp.com/">Bandcamp</a>
+        <a href="https://www.patreon.com/claeslanng">Patreon</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <img src="/assets/logo-rim.svg" width="140" height="80" alt="Claes Lanng">
+    <span>© 2026 Claes Lanng · <a href="/" class="lang-foot" hreflang="en" lang="en">English</a></span>
+  </div>
+</footer>
+
+<script>
+(() => {
+  // The menu gets its dark bar (and the small logo) once you scroll away from the top
+  const header = document.querySelector(".site-header");
+  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 40);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  // SoundCloud loads only when someone asks for it: faster page, no third-party requests before that.
+  // The tabs pick which of his two accounts the player shows.
+  const box = document.getElementById("player");
+  const btn = document.getElementById("load-player");
+  const tabs = document.querySelectorAll(".player-tabs button");
+  let current = tabs[0];
+  const embed = () => {
+    const f = document.createElement("iframe");
+    f.title = current.dataset.name + " på SoundCloud";
+    f.allow = "autoplay";
+    f.src = "https://w.soundcloud.com/player/?url=" + encodeURIComponent(current.dataset.url) +
+            "&color=%23ffb23e&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=false";
+    box.replaceChildren(f);
+    return f;
+  };
+  btn?.addEventListener("click", () => embed().focus());
+  tabs.forEach((tab) => tab.addEventListener("click", () => {
+    if (tab === current) return;
+    tabs.forEach((t) => t.setAttribute("aria-pressed", String(t === tab)));
+    current = tab;
+    btn?.setAttribute("aria-label", "Afspil " + tab.dataset.name + " på SoundCloud");
+    if (box.querySelector("iframe")) embed();   // already playing: switch the player over
+  }));
+
+  const copy = document.getElementById("copy-email");
+  copy?.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText("djclaeslanng@gmail.com");
+      copy.textContent = "Mailadresse kopieret";
+    } catch {
+      window.location.href = "mailto:djclaeslanng@gmail.com";
+    }
+  });
+})();
+</script>
+</body>
+</html>
