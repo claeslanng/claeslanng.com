@@ -111,5 +111,6 @@ Search basics are in place: title, meta description, canonical, Open Graph, Pers
 structured data (JSON-LD with sameAs to every profile), robots.txt and sitemap.xml.
 Update sitemap.xml's lastmod when the page changes. As of 2026-11-20 the site was not
 in search results yet and Search Console was not set up; Claes has to verify it
-himself with his Google account. If he sends a google-site-verification meta tag, put
-it in index.html's <head> and keep it there (removing it un-verifies the site).
+himself with his Google account. He verified with Google's HTML file method:
+google0789dddcf62e118d.html at the site root. Never delete or rename that file
+(removing it un-verifies the site in Search Console).
