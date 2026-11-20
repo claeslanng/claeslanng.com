@@ -93,8 +93,9 @@ TEXTS = [
      '<p class="small">Når han ikke står bag pulten, laver han gratis værktøjer til producere under navnet <a href="https://claeslanng.shop">Claes Lanng Plugins</a>.</p>'),
 
     # Booking
-    ('<p class="lead">For clubs, festivals, private events, collaborations and press, send an email with the date, venue and what you have in mind.</p>',
-     '<p class="lead">Til klubber, festivaler, private arrangementer, samarbejder og presse: send en mail med dato, sted og hvad du har i tankerne.</p>'),
+    ('<p class="lead">For clubs, festivals, private events, collaborations and press, send an email or a message on Instagram with the date, venue and what you have in mind.</p>',
+     '<p class="lead">Til klubber, festivaler, private arrangementer, samarbejder og presse: send en mail eller en besked på Instagram med dato, sted og hvad du har i tankerne.</p>'),
+    ('href="https://ig.me/m/claeslanng">Message on Instagram</a>', 'href="https://ig.me/m/claeslanng">Skriv på Instagram</a>'),
     ('?subject=Booking%20request">Write an email</a>', '?subject=Booking-foresp%C3%B8rgsel">Skriv en mail</a>'),
     ('id="copy-email">Copy email address</button>', 'id="copy-email">Kopiér mailadresse</button>'),
     ('download>Download press kit</a>', 'download>Hent pressekit</a>'),
