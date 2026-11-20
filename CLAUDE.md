@@ -124,7 +124,7 @@ google0789dddcf62e118d.html at the site root. Never delete or rename that file
 da/index.html is GENERATED from index.html by `python3 tools/build-da.py`. Never edit
 da/index.html by hand. After any change to index.html, run the script; if it stops,
 it names the English text that changed: add or update its Danish line in TEXTS.
-Upload both index.html and da/index.html. Both pages carry hreflang links (en, da,
+Commit and push both index.html and da/index.html. Both pages carry hreflang links (en, da,
 x-default = English) and sitemap.xml lists both with the same alternates.
 Language switch: "DA"/"EN" tag in the menu on desktop, "Dansk"/"English" in the footer.
 Danish copy uses "open format-DJ", "pulten" (the decks), "egne numre" (originals),
